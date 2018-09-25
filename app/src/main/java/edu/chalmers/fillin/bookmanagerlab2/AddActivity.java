@@ -15,8 +15,7 @@ public class AddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final BookManager bookManager;
-        bookManager = new SimpleBookManager();
+        final BookManager bookManager = SimpleBookManager.getBookManager();
         setContentView(R.layout.activity_add);
 
         final TextView title = (TextView) findViewById(R.id.title);
@@ -34,16 +33,6 @@ public class AddActivity extends AppCompatActivity {
             }
 
         });
-
-/*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
     }
 
 }

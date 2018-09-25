@@ -20,6 +20,12 @@ public class SimpleBookManager implements BookManager {
         }
     };
 
+    private static SimpleBookManager bookManager = new SimpleBookManager();
+
+    public static SimpleBookManager getBookManager() {
+        return bookManager;
+    }
+
     public SimpleBookManager(){
         bookList = new ArrayList<Book>();
         createBook("JRR Tolkien", "The Hobbit", 200, "1234567891011", "English Literature");
