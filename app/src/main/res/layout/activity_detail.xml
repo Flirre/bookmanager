@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/titleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="78dp"
+        android:text="Title" />
+
+    <TextView
+        android:id="@+id/title-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleLabel"
+        android:textSize="25dp"
+        android:layout_alignStart="@+id/titleLabel"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/authorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/titleLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="138dp"
+        android:text="Author" />
+
+    <TextView
+        android:id="@+id/author-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/authorLabel"
+        android:textSize="25dp"
+        android:layout_alignStart="@+id/titleLabel"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/courseLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/titleLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="204dp"
+        android:text="Course" />
+
+    <TextView
+        android:id="@+id/course-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/courseLabel"
+        android:textSize="25dp"
+        android:layout_alignStart="@+id/titleLabel"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/isbnLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/titleLabel"
+        android:layout_centerVertical="true"
+        android:text="ISBN" />
+
+    <TextView
+        android:id="@+id/isbn-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/isbnLabel"
+        android:textSize="25dp"
+        android:layout_alignStart="@+id/titleLabel"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/priceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="130dp"
+        android:text="Price" />
+
+    <TextView
+        android:id="@+id/price-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/priceLabel"
+        android:textSize="25dp"
+        android:layout_alignEnd="@+id/priceLabel"
+        android:layout_marginTop="-130dp"
+        android:text="Number" />
+
+
+</RelativeLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SummaryActivity">
+
+    <TextView
+        android:id="@+id/totalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="58dp"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="46dp"
+        android:text="Total books in your library" />
+
+    <TextView
+        android:id="@+id/totalnr-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/totalLabel"
+        android:textSize="30dp"
+        android:layout_alignStart="@+id/totalLabel"
+        android:text="Number" />
+
+    <TextView
+        android:id="@+id/leastLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/totalLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="149dp"
+        android:text="Least expensive item:" />
+
+    <TextView
+        android:id="@+id/least-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/leastLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="47dp"
+        android:layout_marginRight="47dp"
+        android:text="Number" />
+
+    <TextView
+        android:id="@+id/mostLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/totalLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="184dp"
+        android:text="Most expensive item:" />
+
+    <TextView
+        android:id="@+id/most-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/least-holder"
+        android:layout_alignBottom="@+id/mostLabel"
+        android:text="Number" />
+
+    <TextView
+        android:id="@+id/averageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/totalLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="219dp"
+        android:text="Average price:" />
+
+    <TextView
+        android:id="@+id/average-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/averageLabel"
+        android:layout_alignEnd="@+id/least-holder"
+        android:text="Number" />
+
+    <TextView
+        android:id="@+id/totalpriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/averageLabel"
+        android:layout_alignParentBottom="true"
+        android:textSize="25dp"
+        android:layout_marginBottom="116dp"
+        android:text="Total price:" />
+
+    <TextView
+        android:id="@+id/total-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/least-holder"
+        android:textSize="25dp"
+        android:layout_alignBottom="@+id/totalpriceLabel"
+        android:text="Number" />
+</RelativeLayout>
