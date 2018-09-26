@@ -21,6 +21,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -81,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
 /*        if (id == R.id.action_settings) {
             return true;
         }*/
-    if(id == R.id.create_new){
-        startActivity(new Intent(MainActivity.this, AddActivity.class));
-    }
+        if(id == R.id.create_new){
+            startActivity(new Intent(MainActivity.this, AddActivity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -133,9 +136,6 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.activity_summary, container, false);
-                        Log.d("textbooks", "onCreate: start");
-
-
             updateSummary(view);
             return view;
         }
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static class CollectionFragment extends Fragment {
 
-         /* The fragment argument representing the section number for this fragment.
+        /* The fragment argument representing the section number for this fragment.
          */
         public CollectionFragment() {
         }
@@ -160,7 +160,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.activity_detail, container, false);
+            View view = inflater.inflate(R.layout.activity_collection, container, false);
+            ListView bookListView = view.findViewById(R.id.bookList);
+            ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SimpleBookManager.getInstance().getAllBooks());
+            bookListView.setAdapter(bookArrayAdapter);
+            bookListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+            bookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent i = new Intent(view.getContext(), DetailActivity.class);
+                    i.putExtra("item_pos", position);
+                    startActivity(i);
+                }
+            });
             return view;
         }
     }

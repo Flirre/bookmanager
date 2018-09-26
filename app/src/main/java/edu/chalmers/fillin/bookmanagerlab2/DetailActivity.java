@@ -12,10 +12,9 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        BookManager bookmanager = new SimpleBookManager();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        Book book = bookmanager.getBook(0);
+        Book book = SimpleBookManager.getInstance().getBook(getIntent().getExtras().getInt("item_pos"));
 
         TextView title = (TextView) findViewById(R.id.title_holder);
         title.setText(book.getTitle());
