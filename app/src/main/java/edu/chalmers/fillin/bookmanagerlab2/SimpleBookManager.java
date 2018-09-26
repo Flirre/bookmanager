@@ -5,11 +5,8 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -41,28 +38,10 @@ public class SimpleBookManager implements BookManager {
 
     public SimpleBookManager(){
         bookList = new ArrayList<Book>();
-
-
-        createBook("JRR Tolkien", "The Hobbit", 200, "1234567891011", "English Literature");
-        createBook("Alan Cooper", "About Face", 800, "2345678991011", "Interaction Design Project");
-        createBook("Fjodor Dostojevskij", "Crime and Punishment", 1800, "0123456791011", "Russian Literature");
-        createBook("Isaac Asimov", "I, Robot", 250, "87654321", "Fiction for Engineers");
-        createBook("William Golding", "Lord of the flies", 111, "9876543291011", "Fiction for Engineers");
-
-        Log.d("gsontag", "\nSimpleBookManager: start" );
-
-        Log.d("gsontag", "SimpleBookManager: middle" );
-        try {
-            Writer writer = new FileWriter("books.json");
-            Gson gson = new GsonBuilder().create();
-            String jsonOutput = gson.toJson(getAllBooks());
-            Log.d("gsontag", ("output :" +jsonOutput));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Log.d("gsontag", "SimpleBookManager: end" );
-
+        Gson gson = new GsonBuilder().create();
+        Book[] bookListArray = gson.fromJson(PreferenceHelper.getBooks(), Book[].class);
+        bookList = new ArrayList<Book>(Arrays.asList(bookListArray));
+        Log.d("sbm123", "SimpleBookManager: "+ getAllBooks().size());
     };
 
     @Override
@@ -76,7 +55,7 @@ public class SimpleBookManager implements BookManager {
 
     @Override
     public Book createBook() {
-        Book book = new Book();
+        Book book = new Book("", "", 0, "", "");
         getAllBooks().add(book);
         return book;
     }
@@ -178,6 +157,12 @@ public class SimpleBookManager implements BookManager {
 
     @Override
     public void saveChanges() {
+        Gson gson = new GsonBuilder().create();
+        String jsonOutput = gson.toJson(getAllBooks().toArray());
+        PreferenceHelper.saveBooks(jsonOutput);
+        Log.d("gsontag", ("output :" + PreferenceHelper.getBooks()));
+
+
 
     }
 }

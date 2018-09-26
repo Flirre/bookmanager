@@ -25,10 +25,22 @@ public class AddActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bookManager.createBook(author.getText().toString(), title.getText().toString(), Integer.parseInt(price.getText().toString()), isbn.getText().toString(), course.getText().toString());
-                for (int i=0;i < bookManager.getAllBooks().size(); i++){
+                final String titleText = title.getText().toString();
+                final String authorText = author.getText().toString();
+                final String courseText = course.getText().toString();
+                final String isbnText = isbn.getText().toString();
+                final int priceText;
+                if (price.getText().toString().equals("")){
+                    priceText = 0;
+                }
+                else {
+                    priceText = Integer.parseInt(price.getText().toString());
+                }
+                bookManager.createBook(authorText, titleText, priceText, isbnText, courseText);
+                for (int i=0;i < bookManager.count(); i++){
                     Log.d("TESTSTRING", "\nonClick: " + bookManager.getBook(i).getTitle());
                 }
+                bookManager.saveChanges();
 
             }
 
