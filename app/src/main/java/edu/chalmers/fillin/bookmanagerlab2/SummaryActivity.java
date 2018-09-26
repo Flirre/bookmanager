@@ -2,17 +2,21 @@ package edu.chalmers.fillin.bookmanagerlab2;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class SummaryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        BookManager bookmanager = new SimpleBookManager();
         super.onCreate(savedInstanceState);
+        BookManager bookmanager = SimpleBookManager.getInstance();
         setContentView(R.layout.activity_summary);
+        Log.d("textbooks", "onCreate: start");
+
 
         TextView nrbooks = (TextView) findViewById(R.id.totalnr_holder);
+        Log.d("textbooks", "onCreate: "+nrbooks.getText().toString());
         nrbooks.setText(Integer.toString(bookmanager.count()));
         TextView least = (TextView) findViewById(R.id.least_holder);
         least.setText(Integer.toString(bookmanager.getMinPrice()) + " SEK");

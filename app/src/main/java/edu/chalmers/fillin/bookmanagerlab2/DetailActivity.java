@@ -15,8 +15,6 @@ public class DetailActivity extends AppCompatActivity {
         BookManager bookmanager = new SimpleBookManager();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         Book book = bookmanager.getBook(0);
 
         TextView title = (TextView) findViewById(R.id.title_holder);

@@ -95,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
          * The fragment argument representing the section number for this
          * fragment.
          */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-        private String name;
 
         public SummaryFragment() {
         }
@@ -105,21 +103,40 @@ public class MainActivity extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static SummaryFragment newInstance(int sectionNumber) {
+        public static SummaryFragment newInstance() {
             SummaryFragment fragment = new SummaryFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            args.putString("Name", "Summary");
-            fragment.setArguments(args);
             return fragment;
+        }
+
+        public void updateSummary(View view){
+            TextView nrbooks = (TextView) view.findViewById(R.id.totalnr_holder);
+            Log.d("textbooks", "onCreate: "+nrbooks.getText().toString());
+            nrbooks.setText(Integer.toString(SimpleBookManager.getInstance().count()));
+            TextView least = (TextView) view.findViewById(R.id.least_holder);
+            least.setText(Integer.toString(SimpleBookManager.getInstance().getMinPrice()) + " SEK");
+            TextView most = (TextView) view.findViewById(R.id.most_holder);
+            most.setText(Integer.toString(SimpleBookManager.getInstance().getMaxPrice()) + " SEK");
+            TextView average = (TextView) view.findViewById(R.id.average_holder);
+            average.setText(Float.toString(SimpleBookManager.getInstance().getMeanPrice()) + " SEK");
+            TextView total= (TextView) view.findViewById(R.id.total_holder);
+            total.setText(Integer.toString(SimpleBookManager.getInstance().getTotalCost()) + " SEK");
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            updateSummary(getView());
+
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            int section = getArguments().getInt(ARG_SECTION_NUMBER);
-            name = getArguments().getString("Name");
             View view = inflater.inflate(R.layout.activity_summary, container, false);
+                        Log.d("textbooks", "onCreate: start");
+
+
+            updateSummary(view);
             return view;
         }
     }
@@ -128,9 +145,6 @@ public class MainActivity extends AppCompatActivity {
 
          /* The fragment argument representing the section number for this fragment.
          */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-        private String name;
-
         public CollectionFragment() {
         }
 
@@ -138,20 +152,14 @@ public class MainActivity extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static CollectionFragment newInstance(int sectionNumber) {
+        public static CollectionFragment newInstance() {
             CollectionFragment fragment = new CollectionFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            args.putString("Name", "Summary");
-            fragment.setArguments(args);
             return fragment;
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            int section = getArguments().getInt(ARG_SECTION_NUMBER);
-            name = getArguments().getString("Name");
             View view = inflater.inflate(R.layout.activity_detail, container, false);
             return view;
         }
@@ -174,9 +182,9 @@ public class MainActivity extends AppCompatActivity {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if (position==1){
-                return SummaryFragment.newInstance(position);
+                return SummaryFragment.newInstance();
             }
-            return CollectionFragment.newInstance(position);
+            return CollectionFragment.newInstance();
         }
 
 
