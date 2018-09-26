@@ -1,10 +1,7 @@
 package edu.chalmers.fillin.bookmanagerlab2;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +12,7 @@ public class AddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final BookManager bookManager = SimpleBookManager.getBookManager();
+        final BookManager bookManager = SimpleBookManager.getInstance();
         setContentView(R.layout.activity_add);
 
         final TextView title = (TextView) findViewById(R.id.title);
@@ -29,7 +26,10 @@ public class AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 bookManager.createBook(author.getText().toString(), title.getText().toString(), Integer.parseInt(price.getText().toString()), isbn.getText().toString(), course.getText().toString());
-                Log.d("TESTSTRING", "onClick: "+ bookManager.getAllBooks().get(bookManager.count()-1).getPrice());
+                for (int i=0;i < bookManager.getAllBooks().size(); i++){
+                    Log.d("TESTSTRING", "\nonClick: " + bookManager.getBook(i).getTitle());
+                }
+
             }
 
         });

@@ -1,11 +1,22 @@
 package edu.chalmers.fillin.bookmanagerlab2;
 
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class SimpleBookManager implements BookManager {
     private ArrayList<Book> bookList;
+
+
     public static final Comparator<Book> DESCENDING_PRICE_COMPARATOR = new Comparator<Book>() {
         // Overriding the compare method to sort the age
         public int compare(Book b0, Book b1) {
@@ -20,19 +31,38 @@ public class SimpleBookManager implements BookManager {
         }
     };
 
-    private static SimpleBookManager bookManager = new SimpleBookManager();
+    private static SimpleBookManager instance;
 
-    public static SimpleBookManager getBookManager() {
-        return bookManager;
+    public static SimpleBookManager getInstance() {
+        if (instance == null)
+            instance = new SimpleBookManager();
+        return instance;
     }
 
     public SimpleBookManager(){
         bookList = new ArrayList<Book>();
+
+
         createBook("JRR Tolkien", "The Hobbit", 200, "1234567891011", "English Literature");
         createBook("Alan Cooper", "About Face", 800, "2345678991011", "Interaction Design Project");
         createBook("Fjodor Dostojevskij", "Crime and Punishment", 1800, "0123456791011", "Russian Literature");
         createBook("Isaac Asimov", "I, Robot", 250, "87654321", "Fiction for Engineers");
         createBook("William Golding", "Lord of the flies", 111, "9876543291011", "Fiction for Engineers");
+
+        Log.d("gsontag", "\nSimpleBookManager: start" );
+
+        Log.d("gsontag", "SimpleBookManager: middle" );
+        try {
+            Writer writer = new FileWriter("books.json");
+            Gson gson = new GsonBuilder().create();
+            String jsonOutput = gson.toJson(getAllBooks());
+            Log.d("gsontag", ("output :" +jsonOutput));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Log.d("gsontag", "SimpleBookManager: end" );
+
     };
 
     @Override
