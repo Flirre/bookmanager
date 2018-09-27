@@ -12,11 +12,8 @@ public class SummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         BookManager bookmanager = SimpleBookManager.getInstance();
         setContentView(R.layout.activity_summary);
-        Log.d("textbooks", "onCreate: start");
-
 
         TextView nrbooks = (TextView) findViewById(R.id.totalnr_holder);
-        Log.d("textbooks", "onCreate: "+nrbooks.getText().toString());
         nrbooks.setText(Integer.toString(bookmanager.count()));
         TextView least = (TextView) findViewById(R.id.least_holder);
         least.setText(Integer.toString(bookmanager.getMinPrice()) + " SEK");

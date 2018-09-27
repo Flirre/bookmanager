@@ -39,16 +39,18 @@ public class SimpleBookManager implements BookManager {
     public SimpleBookManager(){
         bookList = new ArrayList<Book>();
         Gson gson = new GsonBuilder().create();
-        Log.d("TESTERTAG", "SimpleBookManager: "+ PreferenceHelper.getBooks());
         if(PreferenceHelper.getBooks().equals("No saved books.")){
             bookList = new ArrayList<Book>();
         }
         else{
             Book[] bookListArray = gson.fromJson(PreferenceHelper.getBooks(), Book[].class);
             bookList = new ArrayList<Book>(Arrays.asList(bookListArray));
+            createBook("Alan Cooper", "About Face: The Essentials of Interaction Design", 180, "0470084111", "Introduction to Interaction Design");
+            createBook("Harper Lee", "To Kill a Mockingbird", 150, "9780446310789", "Literature 101");
+            createBook("Douglas Adams", "The Hitchhiker's Guide to the Galaxy", 200, "9780345391803", "Intro to Sci-fi writing");
+            createBook("Fyodor Dostoyevsky", "Crime and Punishment", 110, "9781840224306", "Russian Literature 101");
+            createBook("Donald A. Norman", "The Design of Everyday Things", 200, "9780465050659", "Mobile Computing - Design and implementation");
         }
-
-        Log.d("sbm123", "SimpleBookManager: "+ getAllBooks().size());
     }
 
     @Override
@@ -167,9 +169,5 @@ public class SimpleBookManager implements BookManager {
         Gson gson = new GsonBuilder().create();
         String jsonOutput = gson.toJson(getAllBooks().toArray());
         PreferenceHelper.saveBooks(jsonOutput);
-        Log.d("gsontag", ("output :" + PreferenceHelper.getBooks()));
-
-
-
     }
 }

@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleLabel"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:layout_alignStart="@+id/titleLabel"
         android:text="Name" />
 
@@ -33,8 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/titleLabel"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="143dp"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="153dp"
         android:text="Author" />
 
     <TextView
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/authorLabel"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:layout_alignStart="@+id/titleLabel"
         android:text="Name" />
 
@@ -53,7 +53,7 @@
         android:layout_alignStart="@+id/titleLabel"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="207dp"
+        android:layout_marginTop="226dp"
         android:text="Course" />
 
     <TextView
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/courseLabel"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:layout_alignStart="@+id/titleLabel"
         android:text="Name" />
 
@@ -72,7 +72,7 @@
         android:layout_below="@+id/course-holder"
         android:layout_alignStart="@+id/titleLabel"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="23dp"
         android:text="ISBN" />
 
     <TextView
@@ -84,7 +84,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:text="Name"
-        android:textSize="25dp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/priceLabel"
@@ -93,20 +93,21 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginEnd="332dp"
+        android:layout_marginRight="332dp"
+        android:layout_marginBottom="217dp"
         android:text="Price" />
 
     <TextView
         android:id="@+id/price-holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/priceLabel"
-        android:textSize="25dp"
-        android:layout_alignEnd="@+id/priceLabel"
-        android:layout_marginTop="-130dp"
-        android:text="Number" />
+        android:layout_alignStart="@+id/titleLabel"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="188dp"
+        android:text="Number"
+        android:textSize="22dp" />
 
 
 </RelativeLayout>

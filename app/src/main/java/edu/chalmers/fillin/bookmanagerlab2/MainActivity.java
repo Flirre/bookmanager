@@ -80,10 +80,6 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-/*        if (id == R.id.action_settings) {
-            return true;
-        }*/
         if(id == R.id.create_new){
             startActivity(new Intent(MainActivity.this, AddActivity.class));
         }
@@ -113,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
         public void updateSummary(View view){
             TextView nrbooks = (TextView) view.findViewById(R.id.totalnr_holder);
-            Log.d("textbooks", "onCreate: "+nrbooks.getText().toString());
             nrbooks.setText(Integer.toString(SimpleBookManager.getInstance().count()));
             TextView least = (TextView) view.findViewById(R.id.least_holder);
             least.setText(Integer.toString(SimpleBookManager.getInstance().getMinPrice()) + " SEK");
