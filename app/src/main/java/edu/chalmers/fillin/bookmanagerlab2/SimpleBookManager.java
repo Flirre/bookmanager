@@ -14,14 +14,14 @@ public class SimpleBookManager implements BookManager {
     private ArrayList<Book> bookList;
 
 
-    public static final Comparator<Book> DESCENDING_PRICE_COMPARATOR = new Comparator<Book>() {
+    private static final Comparator<Book> DESCENDING_PRICE_COMPARATOR = new Comparator<Book>() {
         // Overriding the compare method to sort the age
         public int compare(Book b0, Book b1) {
             return b0.getPrice() - b1.getPrice();
         }
     };
 
-    public static final Comparator<Book> ASCENDING_PRICE_COMPARATOR = new Comparator<Book>() {
+    private static final Comparator<Book> ASCENDING_PRICE_COMPARATOR = new Comparator<Book>() {
         // Overriding the compare method to sort the age
         public int compare(Book b0, Book b1) {
             return b1.getPrice() - b0.getPrice();
@@ -39,10 +39,17 @@ public class SimpleBookManager implements BookManager {
     public SimpleBookManager(){
         bookList = new ArrayList<Book>();
         Gson gson = new GsonBuilder().create();
-        Book[] bookListArray = gson.fromJson(PreferenceHelper.getBooks(), Book[].class);
-        bookList = new ArrayList<Book>(Arrays.asList(bookListArray));
+        Log.d("TESTERTAG", "SimpleBookManager: "+ PreferenceHelper.getBooks());
+        if(PreferenceHelper.getBooks().equals("No saved books.")){
+            bookList = new ArrayList<Book>();
+        }
+        else{
+            Book[] bookListArray = gson.fromJson(PreferenceHelper.getBooks(), Book[].class);
+            bookList = new ArrayList<Book>(Arrays.asList(bookListArray));
+        }
+
         Log.d("sbm123", "SimpleBookManager: "+ getAllBooks().size());
-    };
+    }
 
     @Override
     public int count() {
