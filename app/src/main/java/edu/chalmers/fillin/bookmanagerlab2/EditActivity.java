@@ -1,31 +1,33 @@
 package edu.chalmers.fillin.bookmanagerlab2;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Gravity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.regex.Pattern;
-
-public class AddActivity extends AppCompatActivity {
+public class EditActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_edit);
         final BookManager bookManager = SimpleBookManager.getInstance();
-        setContentView(R.layout.activity_add);
+        final Book book = bookManager.getBook(getIntent().getExtras().getInt("item_pos"));
 
         final TextView title = (TextView) findViewById(R.id.title);
         final TextView author = (TextView) findViewById(R.id.author);
         final TextView course = (TextView) findViewById(R.id.course);
         final TextView isbn = (TextView) findViewById(R.id.isbn);
         final TextView price = (TextView) findViewById(R.id.price);
+
+        title.setText(book.getTitle());
+        author.setText(book.getAuthor());
+        course.setText(book.getCourse());
+        isbn.setText(book.getIsbn());
+        price.setText(Integer.toString(book.getPrice()));
 
         Button addButton = (Button) findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -48,13 +50,16 @@ public class AddActivity extends AppCompatActivity {
                     snackbar.show();
                 }
                 else {
-                    bookManager.createBook(authorText, titleText, priceText, isbnText, courseText);
+                    book.setAuthor(authorText);
+                    book.setTitle(titleText);
+                    book.setPrice(priceText);
+                    book.setIsbn(isbnText);
+                    book.setCourse(courseText);
                     bookManager.saveChanges();
-                    startActivity(new Intent(AddActivity.this, MainActivity.class));
+                    startActivity(new Intent(EditActivity.this, MainActivity.class));
                 }
             }
 
         });
     }
-
 }
