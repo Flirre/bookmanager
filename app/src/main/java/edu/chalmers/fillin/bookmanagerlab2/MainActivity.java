@@ -157,7 +157,8 @@ public class MainActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.activity_collection, container, false);
             ListView bookListView = view.findViewById(R.id.bookList);
-            ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SimpleBookManager.getInstance().getAllBooks());
+            /*ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SimpleBookManager.getInstance().getAllBooks());*/
+            BookArrayAdapter bookArrayAdapter = new BookArrayAdapter(getContext(), SimpleBookManager.getInstance().getAllBooks());
             bookListView.setAdapter(bookArrayAdapter);
             bookListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
             bookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
