@@ -1,11 +1,24 @@
 package edu.chalmers.fillin.bookmanagerlab2;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Book {
+    @Expose
+    @SerializedName("name")
     private String author;
+    @Expose
+    @SerializedName("title")
     private String title;
+    @Expose
+    @SerializedName("publish_date")
+    private String publisher;
+
     private int price;
     private String isbn;
     private String course;
+
+
 
     public Book(String author, String title, int price, String isbn, String course) {
         this.author = author;
@@ -56,6 +69,14 @@ public class Book {
 
     public void setCourse(String course) {
         this.course = course;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
     @Override
