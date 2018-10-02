@@ -16,16 +16,17 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
         final BookManager bookManager = SimpleBookManager.getInstance();
         final Book book = bookManager.getBook(getIntent().getExtras().getInt("item_pos"));
-
         final TextView title = (TextView) findViewById(R.id.title);
         final TextView author = (TextView) findViewById(R.id.author);
         final TextView course = (TextView) findViewById(R.id.course);
+        final TextView publisher = (TextView) findViewById(R.id.publisher);
         final TextView isbn = (TextView) findViewById(R.id.isbn);
         final TextView price = (TextView) findViewById(R.id.price);
 
         title.setText(book.getTitle());
         author.setText(book.getAuthor());
         course.setText(book.getCourse());
+        publisher.setText(book.getPublisher());
         isbn.setText(book.getIsbn());
         price.setText(Integer.toString(book.getPrice()));
 
@@ -36,6 +37,7 @@ public class EditActivity extends AppCompatActivity {
                 final String titleText = title.getText().toString();
                 final String authorText = author.getText().toString();
                 final String courseText = course.getText().toString();
+                final String publisherText = publisher.getText().toString();
                 final String isbnText = isbn.getText().toString();
                 final int priceText;
                 if (price.getText().toString().equals("")){
@@ -55,6 +57,7 @@ public class EditActivity extends AppCompatActivity {
                     book.setPrice(priceText);
                     book.setIsbn(isbnText);
                     book.setCourse(courseText);
+                    book.setPublisher(publisherText);
                     bookManager.saveChanges();
                     startActivity(new Intent(EditActivity.this, MainActivity.class));
                 }

@@ -16,5 +16,6 @@ public class PreferenceHelper {
     public static void clearBooks() {
         SharedPreferences.Editor editor= MainActivity.preferences.edit();
         editor.remove("books");
+        editor.apply();
     }
 }

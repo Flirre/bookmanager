@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         preferences = getPreferences(MODE_PRIVATE);
         setContentView(R.layout.activity_main);
 
-        getRequest();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -78,41 +77,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
     }
 
-    public void getRequest(){
-        Log.d("getReqTest", "getRequest: start");
-
-        String url = "http://openlibrary.org/api/books";
-        AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-        params.put("bibkeys", "ISBN:9780465050659");
-        params.put("jscmd", "data");
-        params.put("format", "json");
-        client.get(url, params, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                // Root JSON in response is an dictionary i.e { "data : [ ... ] }
-                // Handle resulting parsed JSON response here
-                Gson gson = new GsonBuilder().create();
-                try {
-                    JSONObject bookInfo = response.getJSONObject("ISBN:9780465050659");
-                    Log.d("getReqTest", "getRequest: "+ bookInfo);
-                    String title = bookInfo.getString("title");
-                    String author = bookInfo.getJSONArray("publishers").getJSONObject(0).getString("name");
-                    String publisher = bookInfo.getJSONArray("authors").getJSONObject(0).getString("name");
-                    Log.d("getReqTest", "getRequest:t "+ title);
-                    Log.d("getReqTest", "getRequest:a "+ author);
-                    Log.d("getReqTest", "getRequest:p "+ publisher);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
-                // called when response HTTP status is "4XX" (eg. 401, 403, 404)
-            }
-        });
-    }
 
 
     @Override

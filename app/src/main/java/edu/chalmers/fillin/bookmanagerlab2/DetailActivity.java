@@ -27,6 +27,8 @@ public class DetailActivity extends AppCompatActivity {
         title.setText(book.getTitle());
         TextView author = (TextView) findViewById(R.id.author_holder);
         author.setText(book.getAuthor());
+        TextView publisher = (TextView) findViewById(R.id.publisher_holder);
+        publisher.setText(book.getPublisher());
         TextView course = (TextView) findViewById(R.id.course_holder);
         course.setText(book.getCourse());
         TextView isbn = (TextView) findViewById(R.id.isbn_holder);

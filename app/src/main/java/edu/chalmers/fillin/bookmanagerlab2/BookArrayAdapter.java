@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,8 @@ public class BookArrayAdapter extends ArrayAdapter<Book> {
             listitem = LayoutInflater.from(bContext).inflate(R.layout.listitem_book, parent, false);
         }
         Book currentBook = bookList.get(position);
+        ImageView bookCover = (ImageView) listitem.findViewById(R.id.bookCover);
+        Picasso.get().load(currentBook.getImageURL()).into(bookCover);
         TextView bookName = (TextView) listitem.findViewById(R.id.bookName);
         bookName.setText(currentBook.getTitle());
         TextView bookAuthor = (TextView) listitem.findViewById(R.id.bookAuthor);

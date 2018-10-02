@@ -4,28 +4,23 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Book {
-    @Expose
-    @SerializedName("name")
-    private String author;
-    @Expose
-    @SerializedName("title")
-    private String title;
-    @Expose
-    @SerializedName("publish_date")
-    private String publisher;
 
+    private String author;
+    private String title;
+    private String publisher;
     private int price;
     private String isbn;
     private String course;
+    private String imageURL;
 
-
-
-    public Book(String author, String title, int price, String isbn, String course) {
+    public Book(String author, String title, int price, String isbn, String course, String imageURL, String publisher) {
         this.author = author;
         this.title = title;
         this.price = price;
         this.isbn = isbn;
         this.course = course;
+        this.imageURL = imageURL;
+        this.publisher = publisher;
     }
 
     public Book() {
@@ -77,6 +72,15 @@ public class Book {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     @Override

@@ -6,6 +6,41 @@
     tools:context=".AddActivity">
 
     <EditText
+        android:id="@+id/course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="10dp"
+        android:text="Course" />
+
+    <Button
+        android:id="@+id/fetchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/addButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="85dp"
+        android:text="Fetch" />
+
+    <EditText
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +69,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/course"
+        android:layout_below="@+id/publisher"
         android:layout_alignStart="@+id/textView2"
         android:layout_marginStart="2dp"
         android:layout_marginTop="10dp"
@@ -49,7 +84,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="-1dp"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textView3"
@@ -59,18 +94,19 @@
         android:layout_alignStart="@+id/textView2"
         android:layout_marginStart="0dp"
         android:layout_marginTop="11dp"
-        android:text="Course" />
+        android:text="Publisher" />
 
-    <EditText
-        android:id="@+id/course"
+    <TextView
+        android:id="@+id/publisher"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_below="@+id/textView3"
         android:layout_alignStart="@+id/textView2"
         android:layout_marginStart="-1dp"
         android:layout_marginTop="0dp"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView"
@@ -82,16 +118,17 @@
         android:layout_marginTop="11dp"
         android:text="Author" />
 
-    <EditText
+    <TextView
         android:id="@+id/author"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_below="@+id/textView"
         android:layout_alignStart="@+id/textView2"
         android:layout_marginStart="-1dp"
         android:layout_marginTop="-1dp"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -99,20 +136,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
         android:text="Title" />
 
-    <EditText
+    <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_below="@+id/textView2"
         android:layout_alignStart="@+id/textView2"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/addButton"
@@ -120,7 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp"
+        android:layout_marginBottom="30dp"
         android:text="Add" />
 
 </RelativeLayout>

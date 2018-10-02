@@ -7,6 +7,27 @@
     tools:context=".DetailActivity">
 
     <TextView
+        android:id="@+id/publisherLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/titleLabel"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="225dp"
+        android:text="Publisher" />
+
+    <TextView
+        android:id="@+id/publisher-holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/authorLabel"
+        android:layout_alignStart="@+id/titleLabel"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="72dp"
+        android:text="Name"
+        android:textSize="22dp" />
+
+    <TextView
         android:id="@+id/titleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,8 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/titleLabel"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="226dp"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="301dp"
         android:text="Course" />
 
     <TextView
@@ -61,9 +82,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/courseLabel"
-        android:textSize="22dp"
         android:layout_alignStart="@+id/titleLabel"
-        android:text="Name" />
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="0dp"
+        android:text="Name"
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/isbnLabel"
@@ -71,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/course-holder"
         android:layout_alignStart="@+id/titleLabel"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="-2dp"
         android:layout_marginTop="23dp"
         android:text="ISBN" />
 
@@ -81,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/isbnLabel"
         android:layout_alignStart="@+id/titleLabel"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="-2dp"
         android:layout_marginTop="0dp"
         android:text="Name"
         android:textSize="22dp" />
@@ -93,19 +116,21 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="332dp"
-        android:layout_marginRight="332dp"
-        android:layout_marginBottom="217dp"
+        android:layout_marginEnd="334dp"
+        android:layout_marginRight="334dp"
+        android:layout_marginBottom="146dp"
         android:text="Price" />
 
     <TextView
         android:id="@+id/price-holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/titleLabel"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="188dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="114dp"
         android:text="Number"
         android:textSize="22dp" />
 
