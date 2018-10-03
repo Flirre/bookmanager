@@ -32,11 +32,10 @@ public class AddActivity extends AppCompatActivity {
 
         final TextView title = (TextView) findViewById(R.id.title);
         final TextView author = (TextView) findViewById(R.id.author);
-        final TextView course = (TextView) findViewById(R.id.publisher);
+        final TextView course = (TextView) findViewById(R.id.course);
         final TextView isbn = (TextView) findViewById(R.id.isbn);
         final TextView price = (TextView) findViewById(R.id.price);
         final TextView publisher = (TextView) findViewById(R.id.publisher);
-        isbn.setText("9780465050659");
         final ArrayList<String> url = new ArrayList<>();
 
         Button fetchButton = (Button) findViewById(R.id.fetchButton);
@@ -65,14 +64,7 @@ public class AddActivity extends AppCompatActivity {
                             author.setText(bookAuthor);
                             publisher.setText(bookPublisher);
                             url.add(bookCoverUrl);
-
-
-                            Log.d("getReqTest", "getRequest:t "+ bookTitle);
-                            Log.d("getReqTest", "getRequest:a "+ bookAuthor);
-                            Log.d("getReqTest", "getRequest:p "+ bookPublisher);
-                            Log.d("getReqTest", "getRequest:c "+ bookCoverUrl);
                         } catch (JSONException e) {
-                            Log.d("getReqTest", "getRequest: fk");
                             e.printStackTrace();
                         }
                     }
@@ -81,7 +73,6 @@ public class AddActivity extends AppCompatActivity {
                     public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
                         // called when response HTTP status is "4XX" (eg. 401, 403, 404)
 
-                        Log.d("getReqTest", res);
                     }
                 });
 
@@ -97,7 +88,6 @@ public class AddActivity extends AppCompatActivity {
                 final String courseText = course.getText().toString();
                 final String isbnText = isbn.getText().toString();
                 final String publisherText = publisher.getText().toString();
-                Log.d("saveTest", "onClick: "+url.get(0));
                 final int priceText;
                 if (price.getText().toString().equals("")){
                     priceText = 0;

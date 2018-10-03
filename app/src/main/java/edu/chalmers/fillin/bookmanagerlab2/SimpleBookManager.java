@@ -39,7 +39,6 @@ public class SimpleBookManager implements BookManager {
     public SimpleBookManager(){
         bookList = new ArrayList<Book>();
         Gson gson = new GsonBuilder().create();
-        Log.d("listentag", "SimpleBookManager:" + PreferenceHelper.getBooks() + "  " + count());
         if(PreferenceHelper.getBooks().equals("No saved books.") || PreferenceHelper.getBooks().equals("[]")){
             bookList = new ArrayList<Book>();
             createBook("Harper Lee", "To Kill a Mockingbird", 150, "9780446310789", "Literature 101", "https://covers.openlibrary.org/b/id/7884871-S.jpg", "generic publisher");
