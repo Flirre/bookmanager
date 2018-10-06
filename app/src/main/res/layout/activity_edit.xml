@@ -57,7 +57,7 @@
         android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="10dp"
-        android:text="Price" />
+        android:text="Price (SEK)" />
 
     <TextView
         android:id="@+id/textView4"

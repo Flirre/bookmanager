@@ -34,7 +34,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView isbn = (TextView) findViewById(R.id.isbn_holder);
         isbn.setText(book.getIsbn());
         TextView price = (TextView) findViewById(R.id.price_holder);
-        price.setText(Integer.toString(book.getPrice()));
+        price.setText(Integer.toString(book.getPrice()) + " SEK");
     }
 
     @Override

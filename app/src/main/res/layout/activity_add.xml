@@ -62,12 +62,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/isbn"
-        android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2"
-        android:layout_marginLeft="2dp"
+        android:layout_alignLeft="@+id/textView2"
         android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_marginTop="10dp"
-        android:text="Price" />
+        android:text="Price (SEK)" />
 
     <TextView
         android:id="@+id/textView4"
